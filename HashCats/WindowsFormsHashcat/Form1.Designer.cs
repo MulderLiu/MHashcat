@@ -34,6 +34,9 @@
             this.ConvertToHccapx = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.btnOpenDir = new System.Windows.Forms.Button();
+            this.checkedListBox = new System.Windows.Forms.CheckedListBox();
+            this.btnDele = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -59,7 +62,7 @@
             // 
             // ConvertToHccapx
             // 
-            this.ConvertToHccapx.Location = new System.Drawing.Point(299, 14);
+            this.ConvertToHccapx.Location = new System.Drawing.Point(299, 12);
             this.ConvertToHccapx.Name = "ConvertToHccapx";
             this.ConvertToHccapx.Size = new System.Drawing.Size(118, 23);
             this.ConvertToHccapx.TabIndex = 2;
@@ -76,11 +79,43 @@
             this.txtResult.Size = new System.Drawing.Size(395, 300);
             this.txtResult.TabIndex = 3;
             // 
+            // btnOpenDir
+            // 
+            this.btnOpenDir.Location = new System.Drawing.Point(449, 12);
+            this.btnOpenDir.Name = "btnOpenDir";
+            this.btnOpenDir.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenDir.TabIndex = 4;
+            this.btnOpenDir.Text = "打开";
+            this.btnOpenDir.UseVisualStyleBackColor = true;
+            this.btnOpenDir.Click += new System.EventHandler(this.btnOpenDir_Click);
+            // 
+            // checkedListBox
+            // 
+            this.checkedListBox.FormattingEnabled = true;
+            this.checkedListBox.Location = new System.Drawing.Point(449, 55);
+            this.checkedListBox.Name = "checkedListBox";
+            this.checkedListBox.Size = new System.Drawing.Size(308, 308);
+            this.checkedListBox.Sorted = true;
+            this.checkedListBox.TabIndex = 5;
+            // 
+            // btnDele
+            // 
+            this.btnDele.Location = new System.Drawing.Point(763, 67);
+            this.btnDele.Name = "btnDele";
+            this.btnDele.Size = new System.Drawing.Size(30, 23);
+            this.btnDele.TabIndex = 6;
+            this.btnDele.Text = "X";
+            this.btnDele.UseVisualStyleBackColor = true;
+            this.btnDele.Click += new System.EventHandler(this.btnDele_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 387);
+            this.Controls.Add(this.btnDele);
+            this.Controls.Add(this.checkedListBox);
+            this.Controls.Add(this.btnOpenDir);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.ConvertToHccapx);
             this.Controls.Add(this.txtFilePath);
@@ -100,6 +135,9 @@
         private System.Windows.Forms.Button ConvertToHccapx;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button btnOpenDir;
+        private System.Windows.Forms.CheckedListBox checkedListBox;
+        private System.Windows.Forms.Button btnDele;
     }
 }
 

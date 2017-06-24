@@ -9,12 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace WindowsFormsHashcat
 {
     public partial class Form1 : Form
-    {
-      
+    {      
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +33,6 @@ namespace WindowsFormsHashcat
         public static void RunCmd(List<string> cmd, out string output)
         {
             string CmdPath = @"C:\Windows\System32\cmd.exe";
-
 
             using (Process p = new Process())
             {
@@ -82,7 +81,8 @@ namespace WindowsFormsHashcat
             List<string> list = new List<string>();
             list.Add(@" d:&");
             list.Add(string.Format(@" cd D:\Decrypt\hashcat-utils-1.8\bin &"));
-            list.Add(string.Format(@" cap2hccapx.exe {0} z:\{1} &", txtFilePath.Text, fileinfo.Name.Replace(fileinfo.Extension, ".hccapx")));
+            string newFile = fileinfo.Name.Replace(fileinfo.Extension, ".hccapx");
+            list.Add(string.Format(@" cap2hccapx.exe {0} z:\{1} &", txtFilePath.Text, newFile));
 
             string output = "";
             RunCmd(list, out output);
@@ -93,10 +93,11 @@ namespace WindowsFormsHashcat
             }
             txtResult.Text += output;
             txtResult.Text += " \n**-----------------------------**";
+            checkedListBox.Items.Add(newFile, true);
         }
+             
 
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btnOpenDir_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.Description = "请选择文件路径";
@@ -111,6 +112,17 @@ namespace WindowsFormsHashcat
                 {
                     MessageBox.Show(file.ToString());
                 }
+            }
+        }
+
+        private void btnDele_Click(object sender, EventArgs e)
+        {
+            for (int i = checkedListBox.Items.Count-1; i >=0; i--)
+            {
+                if (checkedListBox.GetItemChecked(i))
+                {
+                    checkedListBox.Items.RemoveAt(i);
+                }                  
             }
         }
     }
